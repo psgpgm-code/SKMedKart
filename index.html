@@ -6,154 +6,1518 @@
 <meta name="theme-color" content="#0b6e4f">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>SKMedKART V2</title>
+<title>SKMedKART V3</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f3f7f6;color:#17221e;font-family:Arial,"Noto Sans Tamil",sans-serif}
-header{background:linear-gradient(135deg,#075d43,#14a06f);color:#fff;padding:18px 16px 22px;border-radius:0 0 24px 24px;position:sticky;top:0;z-index:5}
-h1{font-size:23px;margin:0}header small{opacity:.9}.wrap{max-width:720px;margin:auto;padding:12px}
-.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:10px 0}.nav button{padding:10px 5px;font-size:12px;background:#fff;color:#0b6e4f;border:1px solid #dce8e3}
-.nav button.active{background:#0b6e4f;color:#fff}
-.page{display:none}.page.active{display:block}.card{background:#fff;border-radius:17px;padding:15px;margin:11px 0;box-shadow:0 3px 13px #10251d12}
-h2{font-size:18px;margin:0 0 12px}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.stat{background:#edf8f4;border-radius:13px;padding:13px}.stat b{display:block;font-size:24px;color:#0b6e4f}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}label{font-size:12px;font-weight:bold;display:block;margin:7px 0 5px}
-input,select,textarea,button{width:100%;padding:11px;border-radius:10px;border:1px solid #d7e0dc;font-size:14px;background:#fff}textarea{min-height:70px;resize:vertical}
-button{background:#0b6e4f;color:#fff;border:0;font-weight:bold}.secondary{background:#e8f5f0;color:#0b6e4f}.danger{background:#d83c3c}.wa{background:#20c866}.full{grid-column:1/-1}
-.item{border:1px solid #e1e8e5;border-radius:13px;padding:12px;margin:9px 0}.item strong{font-size:16px}.muted{color:#6b7772;font-size:12px;margin-top:4px}
-.row{display:flex;gap:7px;margin-top:9px}.row>*{flex:1}.pill{display:inline-block;padding:4px 7px;border-radius:20px;font-size:11px;background:#edf8f4;color:#0b6e4f;margin-top:6px}
-.overdue{border-left:5px solid #d83c3c}.today{border-left:5px solid #f0a400}.future{border-left:5px solid #18a36f}
-.empty{text-align:center;padding:24px;color:#78837f}.notice{background:#fff8e6;padding:10px;border-radius:10px;font-size:12px;margin-bottom:9px}
-@media(max-width:480px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.nav{grid-template-columns:repeat(4,1fr)}}
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ background:#f3f7f6;
+ color:#17221e;
+ font-family:Arial,"Noto Sans Tamil",sans-serif
+}
+
+header{
+ background:linear-gradient(135deg,#075d43,#14a06f);
+ color:#fff;
+ padding:18px 16px 22px;
+ border-radius:0 0 24px 24px;
+ position:sticky;
+ top:0;
+ z-index:5
+}
+
+h1{font-size:23px;margin:0}
+header small{opacity:.9}
+
+.wrap{
+ max-width:760px;
+ margin:auto;
+ padding:12px
+}
+
+.nav{
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:6px;
+ margin:10px 0
+}
+
+.nav button{
+ padding:10px 4px;
+ font-size:11px;
+ background:#fff;
+ color:#0b6e4f;
+ border:1px solid #dce8e3
+}
+
+.nav button.active{
+ background:#0b6e4f;
+ color:#fff
+}
+
+.page{display:none}
+.page.active{display:block}
+
+.card{
+ background:#fff;
+ border-radius:17px;
+ padding:15px;
+ margin:11px 0;
+ box-shadow:0 3px 13px #10251d12
+}
+
+h2{
+ font-size:18px;
+ margin:0 0 12px
+}
+
+h3{
+ margin:5px 0 10px;
+ font-size:16px
+}
+
+.stats{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:9px
+}
+
+.stat{
+ background:#edf8f4;
+ border-radius:13px;
+ padding:13px
+}
+
+.stat b{
+ display:block;
+ font-size:24px;
+ color:#0b6e4f
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px
+}
+
+label{
+ font-size:12px;
+ font-weight:bold;
+ display:block;
+ margin:7px 0 5px
+}
+
+input,select,textarea,button{
+ width:100%;
+ padding:11px;
+ border-radius:10px;
+ border:1px solid #d7e0dc;
+ font-size:14px;
+ background:#fff
+}
+
+textarea{
+ min-height:70px;
+ resize:vertical
+}
+
+button{
+ background:#0b6e4f;
+ color:#fff;
+ border:0;
+ font-weight:bold
+}
+
+.secondary{
+ background:#e8f5f0;
+ color:#0b6e4f
+}
+
+.danger{
+ background:#d83c3c
+}
+
+.wa{
+ background:#20c866
+}
+
+.orange{
+ background:#f39c12
+}
+
+.full{
+ grid-column:1/-1
+}
+
+.item{
+ border:1px solid #e1e8e5;
+ border-radius:13px;
+ padding:12px;
+ margin:9px 0
+}
+
+.item strong{
+ font-size:16px
+}
+
+.muted{
+ color:#6b7772;
+ font-size:12px;
+ margin-top:4px
+}
+
+.row{
+ display:flex;
+ gap:7px;
+ margin-top:9px
+}
+
+.row>*{flex:1}
+
+.pill{
+ display:inline-block;
+ padding:4px 7px;
+ border-radius:20px;
+ font-size:11px;
+ background:#edf8f4;
+ color:#0b6e4f;
+ margin-top:6px
+}
+
+.overdue{
+ border-left:5px solid #d83c3c
+}
+
+.today{
+ border-left:5px solid #f0a400
+}
+
+.future{
+ border-left:5px solid #18a36f
+}
+
+.due{
+ border-left:5px solid #d83c3c
+}
+
+.paid{
+ border-left:5px solid #18a36f
+}
+
+.empty{
+ text-align:center;
+ padding:24px;
+ color:#78837f
+}
+
+.notice{
+ background:#fff8e6;
+ padding:10px;
+ border-radius:10px;
+ font-size:12px;
+ margin-bottom:9px
+}
+
+.money{
+ font-size:20px;
+ font-weight:bold;
+ color:#0b6e4f
+}
+
+.red{
+ color:#d83c3c
+}
+
+.green{
+ color:#0b6e4f
+}
+
+hr{
+ border:0;
+ border-top:1px solid #e6ece9;
+ margin:14px 0
+}
+
+@media(max-width:480px){
+ .grid{
+  grid-template-columns:1fr
+ }
+ .full{
+  grid-column:auto
+ }
+ .nav{
+  grid-template-columns:repeat(5,1fr)
+ }
+}
 </style>
 </head>
+
 <body>
-<header><h1>💊 SKMedKART V2</h1><small>Sri Krishna Medicals • Pennagaram</small></header>
+
+<header>
+<h1>💊 SKMedKART V3</h1>
+<small>Sri Krishna Medicals • Pennagaram</small>
+</header>
+
 <div class="wrap">
+
+<!-- NAVIGATION -->
+
 <div class="nav">
 <button class="active" onclick="tab('dash',this)">🏠 Home</button>
 <button onclick="tab('customers',this)">👥 Customers</button>
+<button onclick="tab('orders',this)">🛒 Orders</button>
 <button onclick="tab('reminders',this)">🔔 Reminders</button>
 <button onclick="tab('tools',this)">⚙️ Tools</button>
 </div>
 
+
+<!-- DASHBOARD -->
+
 <section id="dash" class="page active">
-<div class="card"><h2>📊 Dashboard</h2><div class="stats">
-<div class="stat"><b id="sCustomers">0</b>Customers</div><div class="stat"><b id="sToday">0</b>Today</div>
-<div class="stat"><b id="sDue">0</b>Due</div><div class="stat"><b id="sMonth">0</b>This Month</div>
-</div></div>
-<div class="card"><h2>🔔 Today's Reminders</h2><div id="todayList"></div></div>
+
+<div class="card">
+
+<h2>📊 Dashboard</h2>
+
+<div class="stats">
+
+<div class="stat">
+<b id="sCustomers">0</b>
+Customers
+</div>
+
+<div class="stat">
+<b id="sOrders">0</b>
+Orders
+</div>
+
+<div class="stat">
+<b id="sSales">₹0</b>
+Today's Sales
+</div>
+
+<div class="stat">
+<b id="sDue">₹0</b>
+Total Due
+</div>
+
+<div class="stat">
+<b id="sMonth">₹0</b>
+This Month
+</div>
+
+<div class="stat">
+<b id="sStock">0</b>
+Low Stock
+</div>
+
+</div>
+</div>
+
+
+<div class="card">
+
+<h2>🔔 Today's Reminders</h2>
+
+<div id="todayList"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>💰 Recent Sales</h2>
+
+<div id="recentSales"></div>
+
+</div>
+
 </section>
+
+
+
+<!-- CUSTOMERS -->
 
 <section id="customers" class="page">
-<div class="card"><h2>➕ Add Customer</h2>
-<form id="form"><div class="grid">
-<div><label>Customer Name *</label><input id="name" required></div>
-<div><label>Mobile Number</label><input id="phone" inputmode="tel"></div>
-<div><label>Address</label><input id="address"></div>
-<div><label>Medicine Name *</label><input id="medicine" required></div>
-<div><label>Last Purchase Date *</label><input id="last" type="date" required></div>
-<div><label>Reminder Cycle</label><select id="cycle"><option value="30">30 Days</option><option value="28">28 Days</option><option value="60">60 Days</option><option value="90">90 Days</option><option value="7">7 Days</option><option value="1">Daily</option></select></div>
-<div><label>Quantity / Dose</label><input id="dose" placeholder="e.g. 1 strip / 1-0-1"></div>
-<div><label>Next Reminder</label><input id="next" type="date" readonly></div>
-<div class="full"><label>Notes</label><textarea id="notes" placeholder="Extra details..."></textarea></div>
-<div class="full"><button>💾 Save Customer & Reminder</button></div>
-</div></form></div>
-<div class="card"><h2>🔎 Customer Search</h2><input id="search" placeholder="Name / Mobile / Medicine"><div id="customerList"></div></div>
+
+<div class="card">
+
+<h2>➕ Add Customer</h2>
+
+<form id="customerForm">
+
+<div class="grid">
+
+<div>
+<label>Customer Name *</label>
+<input id="cname" required>
+</div>
+
+<div>
+<label>Mobile Number</label>
+<input id="cphone" inputmode="tel">
+</div>
+
+<div class="full">
+<label>Address</label>
+<input id="caddress">
+</div>
+
+<div class="full">
+<label>Notes</label>
+<textarea id="cnotes"></textarea>
+</div>
+
+<div class="full">
+<button>💾 Save Customer</button>
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+
+<div class="card">
+
+<h2>🔎 Customer Search</h2>
+
+<input id="customerSearch" placeholder="Name / Mobile">
+
+<div id="customerList"></div>
+
+</div>
+
 </section>
+
+
+
+<!-- ORDERS -->
+
+<section id="orders" class="page">
+
+<div class="card">
+
+<h2>🛒 New Medicine Sale</h2>
+
+<form id="orderForm">
+
+<div class="grid">
+
+<div>
+<label>Customer Name *</label>
+<input id="oname" required>
+</div>
+
+<div>
+<label>Mobile Number</label>
+<input id="ophone" inputmode="tel">
+</div>
+
+<div>
+<label>Medicine Name *</label>
+<input id="omedicine" required>
+</div>
+
+<div>
+<label>Quantity *</label>
+<input id="oqty" type="number" min="1" value="1" required>
+</div>
+
+<div>
+<label>Price per Unit ₹ *</label>
+<input id="oprice" type="number" min="0" step="0.01" required>
+</div>
+
+<div>
+<label>Paid Amount ₹</label>
+<input id="opaid" type="number" min="0" step="0.01" value="0">
+</div>
+
+<div>
+<label>Sale Date</label>
+<input id="odate" type="date" required>
+</div>
+
+<div>
+<label>Payment Method</label>
+<select id="opayment">
+<option>Cash</option>
+<option>UPI</option>
+<option>Card</option>
+<option>Credit / Due</option>
+</select>
+</div>
+
+<div class="full">
+
+<label>
+<input type="checkbox" id="deductStock" style="width:auto">
+ Stock-லிருந்து quantity கழிக்கவும்
+</label>
+
+</div>
+
+<div class="full">
+
+<label>Notes</label>
+<textarea id="onotes" placeholder="Prescription / extra details"></textarea>
+
+</div>
+
+<div class="full">
+
+<button>💾 Save Sale</button>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+
+<div class="card">
+
+<h2>📋 Order History</h2>
+
+<input id="orderSearch" placeholder="Customer / Medicine">
+
+<div id="orderList"></div>
+
+</div>
+
+</section>
+
+
+
+<!-- REMINDERS -->
 
 <section id="reminders" class="page">
-<div class="card"><h2>🔔 Reminder Center</h2>
-<div class="notice">இந்த app-ல் reminder dates சேமிக்கப்படும். Browser notification permission கொடுத்தால், இந்த device/browser-ல் due reminder notification கிடைக்கும்.</div>
-<button class="secondary" onclick="enableNotifications()">🔔 Enable Notifications</button>
-<div id="reminderList"></div></div>
+
+<div class="card">
+
+<h2>🔔 Reminder Center</h2>
+
+<div class="notice">
+Reminder dates இந்த device-ல் சேமிக்கப்படும்.
+Notification permission கொடுத்தால் browser notification கிடைக்கலாம்.
+</div>
+
+<button class="secondary" onclick="enableNotifications()">
+🔔 Enable Notifications
+</button>
+
+<div id="reminderList"></div>
+
+</div>
+
 </section>
+
+
+
+<!-- TOOLS -->
 
 <section id="tools" class="page">
-<div class="card"><h2>💾 Backup & Restore</h2>
-<button onclick="backup()">⬇️ Backup Data</button><br><br>
-<input id="restoreFile" type="file" accept=".json" onchange="restore(event)">
+
+
+<div class="card">
+
+<h2>📦 Medicine Stock</h2>
+
+<form id="stockForm">
+
+<div class="grid">
+
+<div>
+<label>Medicine Name *</label>
+<input id="stockName" required>
 </div>
-<div class="card"><h2>📲 Shop Contact</h2>
-<p><b>Sri Krishna Medicals, Pennagaram</b></p>
-<button class="wa" onclick="shopWhatsApp()">💬 WhatsApp Shop</button>
+
+<div>
+<label>Quantity *</label>
+<input id="stockQty" type="number" min="0" required>
 </div>
-<div class="card"><h2>⚠️ Important</h2><p style="font-size:13px;color:#66716d">இந்த Version local device storage பயன்படுத்துகிறது. Phone/browser data clear செய்தால் data அழியலாம்; அதனால் Backup-ஐ அவ்வப்போது எடுத்துக் கொள்ளுங்கள்.</p></div>
+
+<div>
+<label>Reorder Level</label>
+<input id="stockMin" type="number" min="0" value="5">
+</div>
+
+<div>
+<label>Expiry Date</label>
+<input id="stockExpiry" type="date">
+</div>
+
+<div class="full">
+<button>📦 Save / Update Stock</button>
+</div>
+
+</div>
+
+</form>
+
+<hr>
+
+<div id="stockList"></div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>💾 Backup & Restore</h2>
+
+<button onclick="backup()">
+⬇️ Backup All Data
+</button>
+
+<br><br>
+
+<input
+id="restoreFile"
+type="file"
+accept=".json"
+onchange="restore(event)"
+>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>📲 Shop WhatsApp</h2>
+
+<p>
+<b>Sri Krishna Medicals, Pennagaram</b>
+</p>
+
+<button class="wa" onclick="shopWhatsApp()">
+💬 WhatsApp Shop
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>⚠️ Data Safety</h2>
+
+<p style="font-size:13px;color:#66716d">
+இந்த app local device storage பயன்படுத்துகிறது.
+Phone/browser data clear செய்தால் data அழியலாம்.
+அதனால் Backup-ஐ அடிக்கடி எடுத்துக் கொள்ளுங்கள்.
+</p>
+
+</div>
+
 </section>
+
 </div>
+
 
 <script>
-const KEY="SKMEDKART_V2_DATA";
-let data=JSON.parse(localStorage.getItem(KEY)||"[]");
-const $=id=>document.getElementById(id);
-const todayISO=()=>{let d=new Date();return d.toISOString().slice(0,10)};
-function datePlus(date,days){let d=new Date(date+"T00:00:00");d.setDate(d.getDate()+Number(days));return d.toISOString().slice(0,10)}
-function fmt(s){return new Date(s+"T00:00:00").toLocaleDateString("en-IN",{day:"2-digit",month:"2-digit",year:"numeric"})}
-function save(){localStorage.setItem(KEY,JSON.stringify(data));renderAll()}
-function esc(s){return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
-function uniqueCustomers(){return new Set(data.map(x=>x.phone||x.name)).size}
-function status(s){let a=new Date(s+"T00:00:00"),b=new Date();b.setHours(0,0,0,0);return a<b?"overdue":+a===+b?"today":"future"}
-function tab(id,btn){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));$(id).classList.add("active");document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));btn.classList.add("active");renderAll()}
-$("last").value=todayISO(); $("next").value=datePlus($("last").value,$("cycle").value);
-$("last").addEventListener("change",()=> $("next").value=datePlus($("last").value,$("cycle").value));
-$("cycle").addEventListener("change",()=> $("next").value=datePlus($("last").value,$("cycle").value));
 
-$("form").addEventListener("submit",e=>{
+const DATA_KEY="SKMEDKART_V3_DATA";
+
+let saved=JSON.parse(localStorage.getItem(DATA_KEY)||"null");
+
+let data=saved||{
+ customers:[],
+ orders:[],
+ reminders:[],
+ stock:[]
+};
+
+const $=id=>document.getElementById(id);
+
+
+function todayISO(){
+
+ let d=new Date();
+
+ return d.toISOString().slice(0,10);
+
+}
+
+
+function money(n){
+
+ return "₹"+Number(n||0).toLocaleString("en-IN",{
+  minimumFractionDigits:2,
+  maximumFractionDigits:2
+ });
+
+}
+
+
+function fmt(s){
+
+ if(!s)return"—";
+
+ return new Date(s+"T00:00:00").toLocaleDateString(
+ "en-IN",
+ {
+  day:"2-digit",
+  month:"2-digit",
+  year:"numeric"
+ }
+ );
+
+}
+
+
+function save(){
+
+ localStorage.setItem(DATA_KEY,JSON.stringify(data));
+
+ renderAll();
+
+}
+
+
+function esc(s){
+
+ return String(s||"").replace(
+ /[&<>"']/g,
+ m=>({
+ "&":"&amp;",
+ "<":"&lt;",
+ ">":"&gt;",
+ '"':"&quot;",
+ "'":"&#039;"
+ }[m])
+ );
+
+}
+
+
+function uid(){
+
+ return crypto.randomUUID?
+ crypto.randomUUID():
+ Date.now()+"_"+Math.random();
+
+}
+
+
+function tab(id,btn){
+
+ document.querySelectorAll(".page")
+ .forEach(x=>x.classList.remove("active"));
+
+ $(id).classList.add("active");
+
+ document.querySelectorAll(".nav button")
+ .forEach(x=>x.classList.remove("active"));
+
+ btn.classList.add("active");
+
+ renderAll();
+
+}
+
+
+function reminderStatus(date){
+
+ let a=new Date(date+"T00:00:00");
+
+ let b=new Date();
+
+ b.setHours(0,0,0,0);
+
+ if(a<b)return"overdue";
+
+ if(+a===+b)return"today";
+
+ return"future";
+
+}
+
+
+
+/* CUSTOMER */
+
+$("customerForm").addEventListener("submit",function(e){
+
  e.preventDefault();
- data.push({id:crypto.randomUUID?crypto.randomUUID():Date.now()+"",name:$("name").value.trim(),phone:$("phone").value.trim(),address:$("address").value.trim(),medicine:$("medicine").value.trim(),last:$("last").value,cycle:$("cycle").value,next:$("next").value,dose:$("dose").value.trim(),notes:$("notes").value.trim()});
- save();e.target.reset();$("last").value=todayISO();$("next").value=datePlus($("last").value,$("cycle").value);alert("✅ Customer & Reminder saved!");
+
+ data.customers.push({
+
+  id:uid(),
+
+  name:$("cname").value.trim(),
+
+  phone:$("cphone").value.trim(),
+
+  address:$("caddress").value.trim(),
+
+  notes:$("cnotes").value.trim(),
+
+  created:todayISO()
+
+ });
+
+ save();
+
+ this.reset();
+
+ alert("✅ Customer saved!");
+
 });
 
-$("search").addEventListener("input",renderAll);
-function renderAll(){
- $("sCustomers").textContent=uniqueCustomers();
- $("sToday").textContent=data.filter(x=>status(x.next)==="today").length;
- $("sDue").textContent=data.filter(x=>status(x.next)!=="future").length;
- let now=new Date(),m=now.getMonth(),y=now.getFullYear();
- $("sMonth").textContent=data.filter(x=>{let d=new Date(x.next+"T00:00:00");return d.getMonth()===m&&d.getFullYear()===y}).length;
- const q=($("search").value||"").toLowerCase();
- const list=data.filter(x=>(x.name+" "+x.phone+" "+x.medicine).toLowerCase().includes(q));
- $("customerList").innerHTML=list.length?list.map(card).join(""):'<div class="empty">Customer இல்லை.</div>';
- $("reminderList").innerHTML=data.slice().sort((a,b)=>a.next.localeCompare(b.next)).map(card).join("")||'<div class="empty">Reminder இல்லை.</div>';
- const todays=data.filter(x=>status(x.next)==="today");
- $("todayList").innerHTML=todays.length?todays.map(card).join(""):'<div class="empty">இன்று Reminder இல்லை 🎉</div>';
+
+
+$("customerSearch").addEventListener(
+"input",
+renderAll
+);
+
+
+
+function customerCard(x){
+
+ let due=data.orders
+ .filter(o=>
+  (o.phone&&x.phone&&o.phone===x.phone)||
+  (!o.phone&&o.name===x.name)
+ )
+ .reduce((s,o)=>s+Number(o.due||0),0);
+
+ return `
+
+ <div class="item">
+
+ <strong>${esc(x.name)}</strong>
+
+ <div class="muted">
+ 📱 ${esc(x.phone||"—")}
+ </div>
+
+ ${x.address?
+ `<div class="muted">📍 ${esc(x.address)}</div>`:""}
+
+ <div class="${due>0?"red":"green"}">
+ 💰 Due: ${money(due)}
+ </div>
+
+ <div class="row">
+
+ <button class="wa"
+ onclick="customerWA('${x.id}')">
+ 💬 WhatsApp
+ </button>
+
+ <button class="danger"
+ onclick="deleteCustomer('${x.id}')">
+ 🗑️ Delete
+ </button>
+
+ </div>
+
+ </div>
+
+ `;
+
 }
-function card(x){
- let st=status(x.next), label=st==="today"?"🔔 இன்று":st==="overdue"?"⚠️ Due":"📅 Upcoming";
- return `<div class="item ${st}"><strong>${esc(x.name)}</strong> — ${esc(x.medicine)}
- <div class="muted">📱 ${esc(x.phone||"—")} ${x.address?" • 📍 "+esc(x.address):""}</div>
- <span class="pill">${label}: ${fmt(x.next)}</span>
- ${x.dose?`<div class="muted">💊 ${esc(x.dose)}</div>`:""}
- ${x.notes?`<div class="muted">📝 ${esc(x.notes)}</div>`:""}
- <div class="row"><button class="wa" onclick="wa('${x.id}')">💬 WhatsApp</button><button class="secondary" onclick="renew('${x.id}')">🔄 Renew</button><button class="danger" onclick="del('${x.id}')">🗑️</button></div></div>`;
+
+
+
+function renderCustomers(){
+
+ let q=($("customerSearch").value||"")
+ .toLowerCase();
+
+ let list=data.customers.filter(x=>
+ (x.name+" "+x.phone)
+ .toLowerCase()
+ .includes(q)
+ );
+
+ $("customerList").innerHTML=list.length?
+ list.map(customerCard).join(""):
+ '<div class="empty">Customer இல்லை.</div>';
+
 }
-function wa(id){
- let x=data.find(a=>a.id===id);if(!x)return;
- let msg=`வணக்கம் ${x.name},%0A%0A💊 Sri Krishna Medicals, Pennagaram%0A%0Aஉங்கள் ${x.medicine} மருந்தை மீண்டும் வாங்க வேண்டிய Reminder.%0Aஅடுத்த தேதி: ${fmt(x.next)}%0A%0Aதேவைப்பட்டால் எங்களுக்கு WhatsApp மூலம் Order செய்யலாம்.`;
- let p=(x.phone||"").replace(/\D/g,"");let u=p.length===10?`https://wa.me/91${p}?text=${msg}`:`https://wa.me/?text=${msg}`;window.open(u,"_blank")
+
+
+
+/* ORDERS */
+
+$("odate").value=todayISO();
+
+
+
+$("orderForm").addEventListener("submit",function(e){
+
+ e.preventDefault();
+
+ let name=$("oname").value.trim();
+
+ let phone=$("ophone").value.trim();
+
+ let medicine=$("omedicine").value.trim();
+
+ let qty=Number($("oqty").value||0);
+
+ let price=Number($("oprice").value||0);
+
+ let paid=Number($("opaid").value||0);
+
+ let total=qty*price;
+
+ if(paid>total){
+
+  alert("⚠️ Paid amount total amount-ஐ விட அதிகமாக இருக்கக்கூடாது.");
+
+  return;
+
+ }
+
+ let due=total-paid;
+
+ let stockItem=data.stock.find(
+ x=>x.name.toLowerCase()===medicine.toLowerCase()
+ );
+
+ if($("deductStock").checked){
+
+  if(!stockItem){
+
+   if(!confirm(
+   "இந்த medicine stock-ல் இல்லை. Stock deduct செய்யாமல் sale save செய்யவா?"
+   ))return;
+
+  }else if(Number(stockItem.qty)<qty){
+
+   if(!confirm(
+   "Stock quantity போதவில்லை. இருந்தாலும் sale save செய்யவா?"
+   ))return;
+
+  }else{
+
+   stockItem.qty=Number(stockItem.qty)-qty;
+
+  }
+
+ }
+
+
+ data.orders.push({
+
+  id:uid(),
+
+  name:name,
+
+  phone:phone,
+
+  medicine:medicine,
+
+  qty:qty,
+
+  price:price,
+
+  total:total,
+
+  paid:paid,
+
+  due:due,
+
+  date:$("odate").value,
+
+  payment:$("opayment").value,
+
+  notes:$("onotes").value.trim()
+
+ });
+
+
+ save();
+
+ this.reset();
+
+ $("odate").value=todayISO();
+
+ $("oqty").value=1;
+
+ $("opaid").value=0;
+
+ alert(
+ due>0?
+ "✅ Sale saved. Due amount: "+money(due):
+ "✅ Sale saved. Fully paid!"
+ );
+
+});
+
+
+
+$("orderSearch").addEventListener(
+"input",
+renderAll
+);
+
+
+
+function orderCard(o){
+
+ let cls=o.due>0?"due":"paid";
+
+ return `
+
+ <div class="item ${cls}">
+
+ <strong>${esc(o.name)}</strong>
+ — ${esc(o.medicine)}
+
+ <div class="muted">
+ 📅 ${fmt(o.date)} • Qty: ${o.qty}
+ </div>
+
+ <div class="muted">
+ 💰 Total: ${money(o.total)}
+ </div>
+
+ <div class="muted">
+ ✅ Paid: ${money(o.paid)}
+ </div>
+
+ <div class="${o.due>0?"red":"green"}">
+ ${o.due>0?
+ "⚠️ Due: "+money(o.due):
+ "✅ Fully Paid"}
+ </div>
+
+ <span class="pill">
+ ${esc(o.payment)}
+ </span>
+
+ ${o.notes?
+ `<div class="muted">📝 ${esc(o.notes)}</div>`:""}
+
+ <div class="row">
+
+ <button class="wa"
+ onclick="orderWA('${o.id}')">
+ 💬 WhatsApp
+ </button>
+
+ <button class="danger"
+ onclick="deleteOrder('${o.id}')">
+ 🗑️ Delete
+ </button>
+
+ </div>
+
+ </div>
+
+ `;
+
 }
-function renew(id){let x=data.find(a=>a.id===id);if(!x)return;x.last=x.next;x.next=datePlus(x.last,x.cycle);save();alert("✅ Next Reminder updated!")}
-function del(id){if(confirm("இந்த record-ஐ delete செய்யவா?")){data=data.filter(x=>x.id!==id);save()}}
+
+
+
+function renderOrders(){
+
+ let q=($("orderSearch").value||"")
+ .toLowerCase();
+
+ let list=data.orders
+ .slice()
+ .reverse()
+ .filter(o=>
+ (o.name+" "+o.phone+" "+o.medicine)
+ .toLowerCase()
+ .includes(q)
+ );
+
+ $("orderList").innerHTML=list.length?
+ list.map(orderCard).join(""):
+ '<div class="empty">Orders இல்லை.</div>';
+
+}
+
+
+
+/* STOCK */
+
+$("stockForm").addEventListener("submit",function(e){
+
+ e.preventDefault();
+
+ let name=$("stockName").value.trim();
+
+ let qty=Number($("stockQty").value||0);
+
+ let min=Number($("stockMin").value||0);
+
+ let expiry=$("stockExpiry").value;
+
+ let existing=data.stock.find(
+ x=>x.name.toLowerCase()===name.toLowerCase()
+ );
+
+ if(existing){
+
+  existing.qty=qty;
+  existing.min=min;
+  existing.expiry=expiry;
+
+ }else{
+
+  data.stock.push({
+
+   id:uid(),
+
+   name:name,
+
+   qty:qty,
+
+   min:min,
+
+   expiry:expiry
+
+  });
+
+ }
+
+ save();
+
+ this.reset();
+
+ $("stockMin").value=5;
+
+ alert("✅ Stock updated!");
+
+});
+
+
+
+function renderStock(){
+
+ if(!data.stock.length){
+
+  $("stockList").innerHTML=
+  '<div class="empty">Medicine stock இல்லை.</div>';
+
+  return;
+
+ }
+
+ $("stockList").innerHTML=data.stock.map(x=>{
+
+  let low=Number(x.qty)<=Number(x.min);
+
+  return `
+
+  <div class="item ${low?"due":""}">
+
+  <strong>💊 ${esc(x.name)}</strong>
+
+  <div class="${low?"red":"green"}">
+  📦 Stock: ${x.qty}
+  </div>
+
+  <div class="muted">
+  🔔 Reorder level: ${x.min}
+  </div>
+
+  ${x.expiry?
+  `<div class="muted">📅 Expiry: ${fmt(x.expiry)}</div>`:""}
+
+  ${low?
+  `<span class="pill">⚠️ Low Stock</span>`:
+  `<span class="pill">✅ Available</span>`}
+
+  <div class="row">
+
+  <button class="danger"
+  onclick="deleteStock('${x.id}')">
+  🗑️ Delete
+  </button>
+
+  </div>
+
+  </div>
+
+  `;
+
+ }).join("");
+
+}
+
+
+
+/* REMINDERS */
+
+function reminderCard(r){
+
+ let st=reminderStatus(r.next);
+
+ return `
+
+ <div class="item ${st}">
+
+ <strong>${esc(r.name)}</strong>
+ — ${esc(r.medicine)}
+
+ <div class="muted">
+ 📱 ${esc(r.phone||"—")}
+ </div>
+
+ <span class="pill">
+
+ ${st==="today"?
+ "🔔 இன்று":
+ st==="overdue"?
+ "⚠️ Due":
+ "📅 Upcoming"}
+
+ : ${fmt(r.next)}
+
+ </span>
+
+ <div class="row">
+
+ <button class="wa"
+ onclick="reminderWA('${r.id}')">
+ 💬 WhatsApp
+ </button>
+
+ <button class="secondary"
+ onclick="renewReminder('${r.id}')">
+ 🔄 Renew
+ </button>
+
+ <button class="danger"
+ onclick="deleteReminder('${r.id}')">
+ 🗑️
+ </button>
+
+ </div>
+
+ </div>
+
+ `;
+
+}
+
+
+
+/* DASHBOARD */
+
+function renderDashboard(){
+
+ let customers=new Set(
+ data.customers.map(x=>x.phone||x.name)
+ );
+
+ $("sCustomers").textContent=customers.size;
+
+ $("sOrders").textContent=data.orders.length;
+
+ let today=todayISO();
+
+ let todaySales=data.orders
+ .filter(o=>o.date===today)
+ .reduce((s,o)=>s+Number(o.total||0),0);
+
+ $("sSales").textContent=money(todaySales);
+
+ let totalDue=data.orders
+ .reduce((s,o)=>s+Number(o.due||0),0);
+
+ $("sDue").textContent=money(totalDue);
+
+ let now=new Date();
+
+ let monthSales=data.orders
+ .filter(o=>{
+
+  let d=new Date(o.date+"T00:00:00");
+
+  return d.getMonth()===now.getMonth() &&
+  d.getFullYear()===now.getFullYear();
+
+ })
+ .reduce((s,o)=>s+Number(o.total||0),0);
+
+ $("sMonth").textContent=money(monthSales);
+
+ let low=data.stock.filter(
+ x=>Number(x.qty)<=Number(x.min)
+ ).length;
+
+ $("sStock").textContent=low;
+
+
+ let todays=data.reminders.filter(
+ x=>reminderStatus(x.next)==="today"
+ );
+
+ $("todayList").innerHTML=todays.length?
+ todays.map(reminderCard).join(""):
+ '<div class="empty">இன்று Reminder இல்லை 🎉</div>';
+
+
+ let recent=data.orders.slice(-5).reverse();
+
+ $("recentSales").innerHTML=recent.length?
+ recent.map(o=>`
+
+ <div class="item">
+
+ <strong>${esc(o.name)}</strong>
+ — ${esc(o.medicine)}
+
+ <div class="muted">
+ ${fmt(o.date)} • Qty ${o.qty}
+ </div>
+
+ <div class="green">
+ ${money(o.total)}
+ </div>
+
+ </div>
+
+ `).join(""):
+ '<div class="empty">Sales இல்லை.</div>';
+
+}
+
+
+
+/* CUSTOMER / ORDER WHATSAPP */
+
+function customerWA(id){
+
+ let x=data.customers.find(a=>a.id===id);
+
+ if(!x)return;
+
+ let msg=
+ `வணக்கம் ${x.name},
+
+💊 Sri Krishna Medicals, Pennagaram
+
+Medicine Order / Enquiry செய்ய WhatsApp மூலம் தொடர்பு கொள்ளலாம்.`;
+
+ let p=(x.phone||"").replace(/\D/g,"");
+
+ let url=p.length===10?
+ `https://wa.me/91${p}?text=${encodeURIComponent(msg)}`:
+ `https://wa.me/?text=${encodeURIComponent(msg)}`;
+
+ window.open(url,"_blank");
+
+}
+
+
+
+function orderWA(id){
+
+ let o=data.orders.find(a=>a.id===id);
+
+ if(!o)return;
+
+ let msg=
+ `வணக்கம் ${o.name},
+
+💊 Sri Krishna Medicals, Pennagaram
+
+Medicine: ${o.medicine}
+Quantity: ${o.qty}
+Total: ${money(o.total)}
+Paid: ${money(o.paid)}
+Due: ${money(o.due)}
+
+நன்றி.`;
+
+ let p=(o.phone||"").replace(/\D/g,"");
+
+ let url=p.length===10?
+ `https://wa.me/91${p}?text=${encodeURIComponent(msg)}`:
+ `https://wa.me/?text=${encodeURIComponent(msg)}`;
+
+ window.open(url,"_blank");
+
+}
+
+
+
+function reminderWA(id){
+
+ let r=data.reminders.find(a=>a.id===id);
+
+ if(!r)return;
+
+ let msg=
+ `வணக்கம் ${r.name},
+
+💊 Sri Krishna Medicals, Pennagaram
+
+உங்கள் ${r.medicine} மருந்தை மீண்டும் வாங்க வேண்டிய Reminder.
+
+📅 அடுத்த தேதி: ${fmt(r.next)}
+
+தேவைப்பட்டால் WhatsApp மூலம் Order செய்யலாம்.`;
+
+ let p=(r.phone||"").replace(/\D/g,"");
+
+ let url=p.length===10?
+ `https://wa.me/91${p}?text=${encodeURIComponent(msg)}`:
+ `https://wa.me/?text=${encodeURIComponent(msg)}`;
+
+ window.open(url,"_blank");
+
+}
+
+
+
+/* DELETE */
+
+function deleteCustomer(id){
+
+ if(confirm("இந்த customer-ஐ delete செய்யவா?")){
+
+  data.customers=data.customers.filter(
+  x=>x.id!==id
+  );
+
+  save();
+
+ }
+
+}
+
+
+
+function deleteOrder(id){
+
+ if(confirm("இந்த order-ஐ delete செய்யவா?")){
+
+  data.orders=data.orders.filter(
+  x=>x.id!==id
+  );
+
+  save();
+
+ }
+
+}
+
+
+
+function deleteStock(id){
+
+ if(confirm("இந்த stock item-ஐ delete செய்யவா?")){
+
+  data.stock=data.stock.filter(
+  x=>x.id!==id
+  );
+
+  save();
+
+ }
+
+}
+
+
+
+function deleteReminder(id){
+
+ if(confirm("இந்த reminder-ஐ delete செய்யவா?")){
+
+  data.reminders=data.reminders.filter(
+  x=>x.id!==id
+  );
+
+  save();
+
+ }
+
+}
+
+
+
+/* REMINDER RENEW */
+
+function renewReminder(id){
+
+ let r=data.reminders.find(x=>x.id===id);
+
+ if(!r)return;
+
+ let old=new Date(r.next+"T00:00:00");
+
+ old.setDate(old.getDate()+Number(r.cycle||30));
+
+ r.next=old.toISOString().slice(0,10);
+
+ save();
+
+ alert("✅ Next Reminder updated!");
+
+}
+
+
+
+/* NOTIFICATIONS */
+
 async function enableNotifications(){
- if(!("Notification"in window)){alert("இந்த browser Notification support செய்யவில்லை.");return}
- let p=await Notification.requestPermission();alert(p==="granted"?"✅ Notifications enabled":"⚠️ Permission not granted");checkNotify()
+
+ if(!("Notification"in window)){
+
+  alert("இந்த browser Notification support செய்யவில்லை.");
+
+  return;
+
+ }
+
+ let p=await Notification.requestPermission();
+
+ if(p==="granted"){
+
+  alert("✅ Notifications enabled");
+
+  checkNotify();
+
+ }else{
+
+  alert("⚠️ Notification permission கிடைக்கவில்லை.");
+
+ }
+
 }
+
+
+
 function checkNotify(){
- if(!("Notification"in window)||Notification.permission!=="granted")return;
+
+ if(
+ !("Notification"in window)||
+ Notification.permission!=="granted"
+ )return;
+
  let t=todayISO();
- data.filter(x=>x.next<=t).forEach(x=>{let k="sent_"+x.id+"_"+x.next;if(!localStorage.getItem(k)){new Notification("SKMedKART Reminder",{body:`${x.name}: ${x.medicine} – Reminder due`});localStorage.setItem(k,"1")}})
-}
-function backup(){
- let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="SKMedKART_V2_Backup_"+todayISO()+".json";a.click();URL.revokeObjectURL(a.href)
-}
-function restore(e){
- let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!Array.isArray(x))throw 0;if(confirm("Current data replace செய்து backup restore செய்யவா?")){data=x;save();alert("✅ Restore complete")}}catch{alert("❌ Invalid backup file")}};r.readAsText(f)
-}
-function shopWhatsApp(){window.open("https://wa.me/?text="+encodeURIComponent("வணக்கம் Sri Krishna Medicals, Pennagaram. Medicine Order / Enquiry."),"_blank")}
-renderAll();checkNotify();
-</script>
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(()=>{}));
-}
-</script>
-</body>
-</html>
+
+ data.reminders
+ .filter(x=>x.next<=t)
+ .forEach(x=>{
+
+  let key="SKMEDKART_SENT_"+x.id+"_"+x.next;
+
+  if(!localStorage.getItem(key)){
+
+   try{
+
+    new Notification(
+    "SKMedKART Reminder",
